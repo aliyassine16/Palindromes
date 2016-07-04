@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+
+textarea{
+	width: 80%;
+	height: 1000px;
+}
+</style>
+<title>Palindromes Extractor</title>
+<body>
+	<h2>Palindromes Extractor Test</h2>	
+	<div>
+		<textarea  id="txtOutput" readonly="true"></textarea>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js.js"></script>
+<script>
+execute();
+function execute(){
+	
+	var testArray = ["",undefined,null,"rotator", "Volvo", "pop","NIPSONANOMIMATAMIMONANOPSIN"];
+	
+	var expectedResult = ["None","None","None","1 palindrome", "None", "1 palindrome","1 palindromes"];
+	
+	var outputConsole = document.getElementById('txtOutput');
+	
+	for(var i=0;i<testArray.length;i++){
+		//create an instance of the class Palindrome
+		var palindromeHandler = new Palindrome(testArray[i]);	
+		palindromeHandler.generatePalindromes();	
+		var testing= "testing input: "+testArray[i]+", Expected result:"+expectedResult[i]+"\r\n\r\n";
+		var outcome=palindromeHandler.generateDisplay();
+		outcome+="\n-----------------------------------------\n";
+		
+		
+		outputConsole.innerHTML =outputConsole.value+testing+outcome;
+	}
+}
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+input{
+	width: 80%;
+	height: 30px;
+	display: block;
+}
+textarea{
+	width: 80%;
+	height: 300px;
+}
+</style>
+<title>Palindromes Extractor</title>
+<body>
+	<h2>Palindromes Extractor</h2>	
+	<label>The Input</label>
+	<input type="text" name="str" value="NIPSONANOMIMATAMIMONANOPSIN" id="txtStr" />
+	<button onClick="execute();">Get All Palindromes</button>
+
+	<div>
+		<textarea  id="txtOutput" readonly="true"></textarea>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js.js"></script>
+<script>
+function execute(){
+	
+	var  str=document.getElementById('txtStr').value.trim();
+	var outputConsole = document.getElementById('txtOutput');
+	
+	//create an instance of the class Palindrome
+	var palindromeHandler = new Palindrome(str);	
+	palindromeHandler.generatePalindromes();	
+	var outcome=palindromeHandler.generateDisplay();
+	
+	
+	outputConsole.innerHTML = "";
+	outputConsole.innerHTML = outcome;
+}
+</script>
